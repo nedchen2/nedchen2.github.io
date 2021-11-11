@@ -1,0 +1,21 @@
+exclude_patterns: [content.md, code/*, data/*, refs/*, sandbox/*, sols/*, results/*, tools/*, readings/*, lectures/*, notebooks/test/*]
+
+repository:
+  url: https://github.com/mhasoba/TheMulQuaBio
+html:
+  use_repository_button: true
+  use_issues_button: true
+
+execute:
+  execute_notebooks: 'off' # toggle between 'off' and auto  to disable or enable execution of jupyter nbs during book building   
+  allow_errors: true
+
+parse:
+  myst_extended_syntax: true
+  
+#######################################################################################
+# Book settings
+title                       : TheMulQuaBio  # The title of the book. Will be placed in the left navbar.
+author                      : Samraat Pawar  # The author of the book
+copyright                   : "2020"  # Copyright year to be placed in the footer
+logo                        : images/logo.png  # A path to the book logo
