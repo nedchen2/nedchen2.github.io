@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 exclude_patterns: [content.md, code/*, data/*, refs/*, sandbox/*, sols/*, results/*, tools/*, readings/*, lectures/*, notebooks/test/*]
 
 repository:
@@ -19,3 +20,6 @@ title                       : TheMulQuaBio  # The title of the book. Will be pla
 author                      : Samraat Pawar  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
 logo                        : images/logo.png  # A path to the book logo
+=======
+theme: jekyll-theme-time-machine
+>>>>>>> c1af3852d25a928af41e18fcca463cea1d278b35
