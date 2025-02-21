@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nedchen2.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Introduction to sequencing: The basis of bioinformatics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What is sequencing">
+<meta property="og:url" content="https://nedchen2.github.io/2025/02/21/1.What-is-Sequencing/index.html">
+<meta property="og:site_name" content="Ned&#39;s Bioinformatics World">
+<meta property="og:description" content="Introduction to sequencing: The basis of bioinformatics">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-02-21T08:57:15.000Z">
+<meta property="article:modified_time" content="2025-02-21T10:12:24.595Z">
+<meta property="article:author" content="Congjia Chen - Ned">
+<meta property="article:tag" content="Bioinformatics">
+<meta property="article:tag" content="Next Generation sequencing">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nedchen2.github.io/2025/02/21/1.What-is-Sequencing/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>What is sequencing | Ned's Bioinformatics World</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ned's Bioinformatics World</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">脚踏实地，眼望星空</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nedchen2.github.io/2025/02/21/1.What-is-Sequencing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Congjia Chen - Ned">
+      <meta itemprop="description" content="With your feet firmly on the ground and your eyes on the stars">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ned's Bioinformatics World">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          What is sequencing
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2025-02-21 16:57:15 / Modified: 18:12:24" itemprop="dateCreated datePublished" datetime="2025-02-21T16:57:15+08:00">2025-02-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Study/" itemprop="url" rel="index"><span itemprop="name">Study</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Introduction to sequencing: The basis of bioinformatics</p>
+<span id="more"></span>
+<h1>What is sequencing?</h1>
+<p>Deoxyribonucleic acid, more commonly known as DNA, is a complex biological molecule that contains most of the information required to create and sustain an organism. Like binary digit (bit) data storage in computing, it consists of lengthy sequences of base pairs (bps), each of which represents one of four nucleotide bases (namely, A, T, C, or G). Various combinations and succession of these base pairs can function in constructing different essential components for life (Watson and Crick, 1953). DNA is also the main unit of inheritance in all kinds of creatures (McCarty, 2003). In the other words, when organisms reproduce, a large portion of their code for life is transmitted to their offspring. This genetic transmission helps to maintain a certain degree of continuity between generations, while still permitting minor sequence alterations that contribute to the diversity of life.</p>
+<p>DNA Sequencing is a technology that helps us to determine the primary structure (sequence) of DNA. The first generation sequencing (i.e. sanger sequencing ) was first discovered by English biochemist Frederick Sanger and his colleagues in 1977 (Sanger et al., 1977). The principle of sanger sequencing rests upon DNA polymerase, which could be used to produce immature DNA strands. The basic procedures for the sanger sequencing includes the following steps: 1) Template preparation: a double-stranded DNA was first isolated from the sample and denatured to single-stranded template DNA. 2) Primer binding: A single-stranded DNA primer is designed to bind to a specific region of the denatured DNA, so that the DNA polymerase can work. 3) DNA polymerization: The template sequence was provided with DNA polymerase, Deoxynucleotide triphosphates (dNTPs) and Dideoxynucleotide triphosphates (ddNTPs, missing the 3’ hydroxyl group, that stop the nucleotide to bind, also they were all fluorescently labeled with different colors based on A,T, G or C). During DNA synthesis driven by DNA polymerase, both dNTPs and ddNTPs were incorporated into the template sequence based on the template single-stranded DNA. As ddNTP stops more nucleotides from being further added, the random addition of a ddNTP results in varying length of fragments with only the last base labeled fluorescently. 4) Fragment Separation and sequencing: The gel electrophoresis technology could migrate and separate the DNA fragments by size. Then the emitted fluorescent signals can be read in the order of size of these DNA fragments to determine the sequence of template DNA.</p>
+<p>While the first generation sequencing can accurately determine the sequence of DNA, the time and finance cost has been a barrier for the human society to further explore the genetic materials for decades. In contrast to classical sanger sequencing, which depends on the sequential addition of nucleotides, next generation sequencing (NGS) uses massively parallel sequencing technologies, which allow millions of DNA fragments to be processed simultaneously (Goodwin et al., 2016). The basic procedures include: 1) Sample preparation: The DNA was first fragmentated into smaller pieces, then denatured. 2) Ligated with DNA adapters (DNA adapters includes nucleotide binding site to the DNA fragments and also an additional complementary sequence which could then be hybridized to the flow cell). 3) PCR and bridge amplification: After adapter ligation, DNA fragments are affixed to a solid surface—such as a flow cell—where they are amplified using PCR. After the PCR, the next step is to do bridge amplification. Each of the single DNA molecules is clonally amplified to create dense clusters of identical DNA fragments within a solid surface. The reverse strands from each dense DNA cluster were then cleaved from the solid surface and sequencing can begin. 4) Sequencing: Following amplification, sequencing can be carried out utilizing a variety of techniques, such as ion semiconductor sequencing, sequencing by synthesis (SBS), and sequencing by ligation. In SBS, fluorescently labeled deoxynucleotide triphosphates (dNTPs) are incorporated into the DNA strands by DNA polymerase, and a signal detector will capture the emitted fluorescence signal after each incorporation step. Of note, bridge amplification before sequencing is crucial to NGS, as the detection accuracy will be improved when fluorescence signals released during sequencing procedures are stronger (i.e. many identical DNA fragments).</p>
+<p>By choosing different sequencing strategies or protocols, sequencing can have different applications. One of the most widely used sequencing strategies is whole genome sequencing (WGS). A genome is the complete set of DNA sequences in an organism.<br>
+Although each human has a largely identical genome, which sets us apart from other creatures like monkeys, each of us has a significantly distinct genome that makes us unique, resulting in the difference in the biological process. Specifically, by comparing genomes from patients with genetic disorders with the average human genome, we can often find some sequence differences (we call them mutations) associated with those disorders. For instance, it has been shown that certain “single-gene” diseases, such as sickle cell disease and cystic fibrosis, are caused by mutations in a single gene (Kumar, 2016). More commonly, examples including cancers, liver disease and cardiovascular disease shows that more diseases originate from a more complex combination of genetic and environmental factors. Recently, human gut microbiota, was now found to be closely associated with multiple diseases (Fan and Pedersen, 2021). The conventional method of conducting microbiota research involves cultivating each strain in the laboratory; however, the inability to cultivate all microorganisms has been a hurdle to microbiota research for decades. By slightly altering the object of WGS from human genome to the genome within a specific environment (aka, metagenome. Using fecal samples in human study is one instance), we can conduct quantitative analysis towards the gut microbiota community without cultivation.</p>
+<p>DNA typically functions to store the information used to encode a protein that performs a specific biological function, such as immune response, cell metabolism and growth. The expression of protein-coding DNA (“coding DNA”) starts from a process called transcription, by which the gene sequence was transcribed into “translation-ready“ complementary messenger RNA (mRNA) for protein production. Of note, a mRNA can be spliced and modified based on non-coding “introns” and protein-coding “exons” in various ways to create distinct protein forms (also known as “isoforms”) that are generated from the same gene. Interestingly, the coding DNA only makes up about 1%-2% of the human genome (Dunham et al., 2012). The rest of the human genome contains non-coding regions that play multiple biological functions, such as generating Non-Coding RNAs (ncRNAs) including MicroRNAs (miRNAs) and Long Non-Coding RNAs (lncRNAs). It is thought the ncRNAs are included in the regulation of gene expression (Esteller, 2011). Thus, it is clear that biological research requires more than just knowledge of human DNA. By conducting another popular sequencing strategy, RNA sequencing, we can get a “snapshot” of the numbers and identities of RNA molecules, knowing what the cells are currently doing.</p>
+<p>There are more examples of how people are developing new sequencing strategies for different biological questions. Single-cell sequencing technology was discovered based on the issue of cell heterogenesis in biological research. Spatial sequencing technology was developed according to the spatial heterogenesis in disease, especially cancer, development. Epigenetics sequencing was developed to quantify the modification not present in the primary DNA sequence, such as, altering DNA accessibility and chromatin<br>
+structure. All of these techniques bring us a data explosion era of biological research. By providing a systematical and comprehensive profiling towards the biological process, these techniques bring us a new promising future with precision medicine and personalized treatment. However, how we can utilize those high dimensional data is still under development. The recent development of artificial intelligence in science, might be a possible way for humans to utilize the big biological data and to understand biological questions.</p>
+<p>Reference</p>
+<p>Dunham, I., Kundaje, A., Aldred, S.F., Collins, P.J., Davis, C.A., Doyle, F., Epstein, C.B., Frietze, S., Harrow, J., Kaul, R., Khatun, J., Lajoie, B.R., Landt, S.G., Lee, B.-K., Pauli, F., Rosenbloom, K.R., Sabo, P., Safi, A., Sanyal, A., Shoresh, N., Simon, J.M., Song, L., Trinklein, N.D., Altshuler, R.C., Birney, E., Brown, J.B., Cheng, C., Djebali, S., Dong, X., Dunham, I., Ernst, J., Furey, T.S., Gerstein, M., Giardine, B., Greven, M., Hardison, R.C., Harris, R.S., Herrero, J., Hoffman, M.M., Iyer, S., Kellis, M., Khatun, J., Kheradpour, P., Kundaje, A., Lassmann, T., Li, Q., Lin, X., Marinov, G.K., Merkel, A., Mortazavi, A., Parker, S.C.J., Reddy, T.E., Rozowsky, J., Schlesinger, F., Thurman, R.E., Wang, J., Ward, L.D., Whitfield, T.W., Wilder, S.P., Wu, W., Xi, H.S., Yip, K.Y., Zhuang, J., Bernstein, B.E., Birney, E., Dunham, I., Green, E.D., Gunter, C., Snyder, M., Pazin, M.J., Lowdon, R.F., Dillon, L.A.L., Adams, L.B., Kelly, C.J., Zhang, J., Wexler, J.R., Green, E.D., Good, P.J., Feingold, E.A., Bernstein, B.E., Birney, E., Crawford, G.E., Dekker, J., Elnitski, L., Farnham, P.J., Gerstein, M., Giddings, M.C., Gingeras, T.R., Green, E.D., Guigó, R., Hardison, R.C., Hubbard, T.J., Kellis, M., Kent, W.J., Lieb, J.D., Margulies, E.H., Myers, R.M., Snyder, M., Stamatoyannopoulos, J.A., Tenenbaum, S.A., Weng, Z., White, K.P., Wold, B., Khatun, J., Yu, Y., Wrobel, J., Risk, B.A., Gunawardena, H.P., Kuiper, H.C., Maier, C.W., Xie, L., Chen, X., Giddings, M.C., Bernstein, B.E., Epstein, C.B., Shoresh, N., Ernst, J., Kheradpour, P., Mikkelsen, T.S., Gillespie, S., Goren, A., Ram, O., Zhang, X., Wang, L., Issner, R., Coyne, M.J., Durham, T., Ku, M., Truong, T., Ward, L.D., Altshuler, R.C., Eaton, M.L., Kellis, M., Djebali, S., Davis, C.A., Merkel, A., Dobin, A., Lassmann, T., Mortazavi, A., Tanzer, A., Lagarde, J., Lin, W., Schlesinger, F., Xue, C., Marinov, G.K., Khatun, J., Williams, B.A., Zaleski, C., Rozowsky, J., Röder, M., Kokocinski, F., Abdelhamid, R.F., Alioto, T., Antoshechkin, I., Baer, M.T., Batut, P., Bell, I., Bell, K., Chakrabortty, S., Chen, X., Chrast, J., Curado, J., Derrien, T., Drenkow, J., Dumais, E., Dumais, J., Duttagupta, R., Fastuca, M., Fejes-Toth, K., Ferreira, P., Foissac, S., Fullwood, M.J., Gao, H., Gonzalez, D., Gordon, A., Gunawardena, H.P., Howald, C., Jha, S., Johnson, R., Kapranov, P., King, B., Kingswood, C., Li, G., Luo, O.J., Park, E., Preall, J.B., Presaud, K., Ribeca, P., Risk, B.A., Robyr, D., Ruan, X., Sammeth, M., Sandhu, K.S., Schaeffer, L., See, L.-H., Shahab, A., Skancke, J., Suzuki, A.M., Takahashi, H., Tilgner, H., Trout, D., Walters, N., Wang, H., Wrobel, J., Yu, Y., Hayashizaki, Y., Harrow, J., Gerstein, M., Hubbard, T.J., Reymond, A., Antonarakis, S.E., Hannon, G.J., Giddings, M.C., Ruan, Y., Wold, B., Carninci, P., Guigó, R., Gingeras, T.R., Rosenbloom, K.R., Sloan, C.A., Learned, K., Malladi, V.S., Wong, M.C., Barber, G.P., Cline, M.S., Dreszer, T.R., Heitner, S.G., Karolchik, D., Kent, W.J., Kirkup, V.M., Meyer, L.R., Long, J.C., Maddren, M., Raney, B.J., Furey, T.S., Song, L., Grasfeder, L.L., Giresi, P.G., Lee, B.-K., Battenhouse, A., Sheffield, N.C., Simon, J.M., Showers, K.A., Safi, A., London, D., Bhinge, A.A., Shestak, C., Schaner, M.R., Ki Kim, S., Zhang, Z.Z., Mieczkowski, P.A., Mieczkowska, J.O., Liu, Z., McDaniell, R.M., Ni, Y., Rashid, N.U., Kim, M.J., Adar, S., Zhang, Z., Wang, T., Winter, D., Keefe, D., Birney, E., Iyer, V.R., Lieb, J.D., Crawford, G.E., Li, G., Sandhu, K.S., Zheng, M., Wang, P., Luo, O.J., Shahab, A., Fullwood, M.J., Ruan, X., Ruan, Y., Myers, R.M., Pauli, F., Williams, B.A., Gertz, J., Marinov, G.K., Reddy, T.E., Vielmetter, J., Partridge, E., Trout, D., Varley, K.E., Gasper, C., The ENCODE Project Consortium, Overall coordination (data analysis coordination), Data production leads (data production), Lead analysts (data analysis), Writing group, NHGRI project management (scientific management), Principal investigators (steering committee), Boise State University and University of North Carolina at Chapel Hill Proteomics groups (data production and analysis), Broad Institute Group (data production and analysis), Cold Spring Harbor, U. of G., Center for Genomic Regulation, Barcelona, RIKEN, Sanger Institute, University of Lausanne, Genome Institute of Singapore group (data production and analysis), Data coordination center at UC Santa Cruz (production data coordination), Duke University, E., University of Texas, Austin, University of North Carolina-Chapel Hill group (data production and analysis), Genome Institute of Singapore group (data production and analysis), HudsonAlpha Institute, C., UC Irvine, Stanford group (data production and analysis), 2012. An integrated encyclopedia of DNA elements in the human genome. Nature 489, 57–74. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/nature11247">https://doi.org/10.1038/nature11247</a></p>
+<p>Esteller, M., 2011. Non-coding RNAs in human disease. Nat. Rev. Genet. 12, 861–874. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/nrg3074">https://doi.org/10.1038/nrg3074</a><br>
+Fan, Y., Pedersen, O., 2021. Gut microbiota in human metabolic health and disease. Nat. Rev. Microbiol. 19, 55–71. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/s41579-020-0433-9">https://doi.org/10.1038/s41579-020-0433-9</a></p>
+<p>Goodwin, S., McPherson, J.D., McCombie, W.R., 2016. Coming of age: ten years of next-generation sequencing technologies. Nat. Rev. Genet. 17, 333–351. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/nrg.2016.49">https://doi.org/10.1038/nrg.2016.49</a></p>
+<p>Kumar, D., 2016. Chapter 11 - Medical and Health Aspects of Genetics and Genomics, in: Kumar, Dhavendra, Antonarakis, S. (Eds.), Medical and Health Genomics. Academic Press, Oxford, pp. 139–160. <a target="_blank" rel="noopener" href="https://doi.org/10.1016/B978-0-12-420196-5.00011-3">https://doi.org/10.1016/B978-0-12-420196-5.00011-3</a><br>
+McCarty, M., 2003. Discovering genes are made of DNA. Nature 421, 406–406. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/nature01398">https://doi.org/10.1038/nature01398</a></p>
+<p>Sanger, F., Nicklen, S., Coulson, A.R., 1977. DNA sequencing with chain-terminating inhibitors. Proc. Natl. Acad. Sci. 74, 5463–5467. <a target="_blank" rel="noopener" href="https://doi.org/10.1073/pnas.74.12.5463">https://doi.org/10.1073/pnas.74.12.5463</a></p>
+<p>Watson, J.D., Crick, F.H.C., 1953. Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid. Nature 171, 737–738. <a target="_blank" rel="noopener" href="https://doi.org/10.1038/171737a0">https://doi.org/10.1038/171737a0</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Bioinformatics/" rel="tag"># Bioinformatics</a>
+              <a href="/tags/Next-Generation-sequencing/" rel="tag"># Next Generation sequencing</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/02/21/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2025/02/21/2.My-Research/" rel="next" title="My Research About Multifactorial diseases">
+      My Research About Multifactorial diseases <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">What is sequencing?</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Congjia Chen - Ned</p>
+  <div class="site-description" itemprop="description">With your feet firmly on the ground and your eyes on the stars</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Congjia Chen - Ned</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
